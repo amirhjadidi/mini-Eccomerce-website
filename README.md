@@ -1,0 +1,1 @@
+This is a mini E-commerce project using React.js, tailwind, Fake store API
