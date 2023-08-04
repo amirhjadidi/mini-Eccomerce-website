@@ -11,7 +11,7 @@ import {FiTrash2} from "react-icons/fi"
 
 function Sidebar() {
 	const {isOpen, handleClose} = useContext(SidebarContext)
-	console.log(useContext(CartContext))
+	const {cart} = useContext(CartContext)
 	return (
 		<div className={`${isOpen ? "right-0" : "-right-full"} w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] xl:w-[30vw]
 		 transition-all duration-300 z-20 px-4 lg:px-[35]`}>
@@ -23,6 +23,10 @@ function Sidebar() {
 					<IoMdArrowForward onClick={() => handleClose()} className="text-2xl"/>
 				</div>
 			</div>
+			<div>cart items : {cart.map(item => {
+				// return <p key={item.id}>{item.title}</p>
+				return <CartItem item={item} key={item.id}/>
+			})}</div>
 		</div>
 	);
 }
